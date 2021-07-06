@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Credentials</string>
+    <string name="no_account">No account? <b>SignUp</b></string>
+</resources>
