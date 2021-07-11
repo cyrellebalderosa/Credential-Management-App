@@ -31,6 +31,7 @@ import com.facebook.login.LoginResult
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseUser
 import org.json.JSONObject
+//import kotlin.Exception
 
 
 class LoginActivity : AppCompatActivity() {
@@ -119,7 +120,7 @@ class LoginActivity : AppCompatActivity() {
             validateData()
         }
 
-        //facebook configure
+        //facebook configure/ handle click
         callbackManager = CallbackManager.Factory.create()
 
         binding.fbloginBtn.setPermissions("email")
@@ -129,7 +130,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-
+        //print keyhash for facebook auth
     private fun printKeyHash() {
         try {
             val info = packageManager.getPackageInfo("com.example.credentials", PackageManager.GET_SIGNATURES)
@@ -225,7 +226,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    // [START auth_with_google]
+    // START auth with google
     private fun firebaseAuthwithGoogleAccount(account: GoogleSignInAccount?) {
         Log.d(TAG, "firebaseAuthwithGoogleAccount: begin firebase auth with google account")
         val credential = GoogleAuthProvider.getCredential(account!!.idToken, null)
@@ -271,7 +272,7 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this@LoginActivity, "LogIn failed due to ${e.message}", Toast.LENGTH_SHORT).show()
 
                 }
-    // [END auth_with_google]
+    //END auth with google
 
 
     }
@@ -280,9 +281,10 @@ class LoginActivity : AppCompatActivity() {
     //facebook sign in
     private fun signIn() {
         binding.fbloginBtn.setReadPermissions("email", "public_profile")
-        binding.fbloginBtn.registerCallback(callbackManager, object: FacebookCallback<LoginResult>{
+        binding.fbloginBtn.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
                 handleFacebookAccessToken(result!!.accessToken)
+
             }
 
             override fun onCancel() {
@@ -308,7 +310,7 @@ class LoginActivity : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success")
                         val user = firebaseAuth.currentUser
-                        updateUI(user)
+                       // updateUI(user)
 
                         startActivity(Intent(this,ProfileActivity::class.java))
                         finish()
@@ -318,15 +320,14 @@ class LoginActivity : AppCompatActivity() {
                         Log.w(TAG, "signInWithCredential:failure", task.exception)
                         Toast.makeText(baseContext, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show()
-                        updateUI(null)
+                        //updateUI(null)
                     }
                 }
 
 
     }
 
-    private fun updateUI(user: FirebaseUser?) {
-
-    }
+    //private fun updateUI(user: FirebaseUser?) {
+   // }
 
 }
