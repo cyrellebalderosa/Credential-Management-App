@@ -8,20 +8,13 @@
     tools:context=".LoginActivity">
 
 
-   <!-- <ImageView
-        android:id="@+id/iconIv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/google1"
-        android:layout_below="@+id/googleSignInBtn"
-        android:layout_centerHorizontal="true"/>   -->
 
    <TextView
        android:id="@+id/titleLabelTv"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_centerHorizontal="true"
-       android:text="Login"
+       android:text="LogIn"
        style="@style/TextAppearance.MaterialComponents.Headline4" />
     <TextView
         android:layout_width="wrap_content"
@@ -73,19 +66,35 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:layout_below="@id/passwordTil"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp" />
 
     <!--google SignIn Button-->
     <com.google.android.gms.common.SignInButton
         android:id="@+id/googleSignInBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/loginBtn"
+        android:layout_below="@+id/SignUpUsing"
         android:layout_centerHorizontal="true"/>
 
 
-    <!--no account? sign up-->
+    <!--Facebook SignIn Button-->
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fblogin_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/googleSignInBtn"
+        android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:id="@+id/SignUpUsing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="or Sign In Using"
+        android:layout_below="@+id/loginBtn"
+        style="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <!--no account? sign up-->
     <TextView
         android:id ="@+id/noAccountTv"
         android:layout_width="wrap_content"

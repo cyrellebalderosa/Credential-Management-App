@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Credentials</string>
     <string name="no_account">No account? <b>SignUp</b></string>
+
+    <string name="facebook_app_id">250016959844889</string>
+    <string name="fb_login_protocol_scheme">fb250016959844889</string>
+
 </resources>

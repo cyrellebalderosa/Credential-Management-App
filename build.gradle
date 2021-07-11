@@ -4,6 +4,13 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven {
+            url = uri("https://maven.springframework.org/release")
+        }
+        maven {
+            url = uri("https://maven.restlet.com")
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.2"
