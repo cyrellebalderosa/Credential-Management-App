@@ -31,7 +31,7 @@ import com.facebook.login.LoginResult
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseUser
 import org.json.JSONObject
-//import kotlin.Exception
+
 
 
 class LoginActivity : AppCompatActivity() {
@@ -214,7 +214,7 @@ class LoginActivity : AppCompatActivity() {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)
-                //Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
+
                 firebaseAuthwithGoogleAccount(account)
             } catch (e: Exception) {
                 // Google Sign In failed, update UI appropriately
@@ -310,9 +310,8 @@ class LoginActivity : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success")
                         val user = firebaseAuth.currentUser
-                       // updateUI(user)
 
-                        startActivity(Intent(this,ProfileActivity::class.java))
+                       startActivity(Intent(this,ProfileActivity::class.java))
                         finish()
 
                     } else {
@@ -320,14 +319,13 @@ class LoginActivity : AppCompatActivity() {
                         Log.w(TAG, "signInWithCredential:failure", task.exception)
                         Toast.makeText(baseContext, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show()
-                        //updateUI(null)
+
                     }
                 }
 
 
     }
 
-    //private fun updateUI(user: FirebaseUser?) {
-   // }
+
 
 }
