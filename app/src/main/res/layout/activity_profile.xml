@@ -1,30 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="20dp"
-    android:gravity="center"
     tools:context=".ProfileActivity">
-    
+
     <TextView
+        android:id="@+id/loggedinas"
+        style="@style/TextAppearance.MaterialComponents.Caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You're logged-In as"
-        style="@style/TextAppearance.MaterialComponents.Caption"/>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="115dp"
+        android:padding="5dp"
+        android:text="You're logged-In as" />
+
     <TextView
         android:id="@+id/emailTv"
+        style="@style/TextAppearance.MaterialComponents.Body1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        style="@style/TextAppearance.MaterialComponents.Body1"/>
+        android:layout_above="@id/loggedinas"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="94dp"
+        android:padding="3dp"
+        android:text="Email" />
 
     <Button
         android:id="@+id/logouBtn"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"/>
-</LinearLayout>
+        android:layout_above="@id/emailTv"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:text="Logout" />
+
+
+    <TextView
+        android:id="@+id/personalinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Personal Information"
+        android:layout_centerHorizontal="true"
+        style="@style/TextAppearance.MaterialComponents.Headline4"/>
+
+
+    <TextView
+        android:id="@+id/listAppSites"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/personalinfo"
+
+        android:layout_marginTop="49dp"
+        android:text="List of Apps and Sites" />
+
+    <EditText
+        android:id="@+id/appsiteEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listAppSites"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType=""
+        />
+
+    <TextView
+        android:id="@+id/emailusernameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appsiteEt"
+        android:text="Email/ Username"
+        style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+    <EditText
+        android:id="@+id/emailusernameEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailusernameTv"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType=""
+        />
+
+    <TextView
+        android:id="@+id/passtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailusernameEt"
+        android:text="Password"
+        style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+    <EditText
+        android:id="@+id/passEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passtxt"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType=""
+        />
+
+    <Button
+        android:id="@+id/savetbtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loggedinas"
+        android:layout_centerHorizontal="true"
+        android:enabled="false"
+        android:text="Save" />
+
+
+    <TextView
+        android:id="@+id/outputdata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passEt"
+        android:visibility="invisible"
+        android:text="TextView" />
+
+
+</RelativeLayout>
