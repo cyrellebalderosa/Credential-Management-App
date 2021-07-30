@@ -33,7 +33,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var editappsite: EditText
     private lateinit var editusername: EditText
     private lateinit var editpass: EditText
-   // private lateinit var showbutton: Button
+    private lateinit var savebutton: Button
     private lateinit var outputdata: TextView
 
 
@@ -62,7 +62,7 @@ class ProfileActivity : AppCompatActivity() {
         editappsite = findViewById(R.id.appsiteEt)
         editusername = findViewById(R.id.emailusernameEt)
         editpass = findViewById(R.id.passEt)
-       // showbutton = findViewById(R.id.showbtn1)
+        savebutton = findViewById(R.id.savebtn2)
         outputdata = findViewById(R.id.outputdata)
 
 
@@ -98,8 +98,6 @@ class ProfileActivity : AppCompatActivity() {
 
             startActivity(Intent(this, credentialForm::class.java)
                     .putExtra("Apps and Sites", editappsite.text.toString())
-                    //.putExtra("Email/ Username", editusername.text.toString().trim())
-                    //.putExtra("Password", editpass.text.toString().trim())
                     .putExtra("output", outputdata.text.toString())
             )
 
@@ -137,6 +135,12 @@ class ProfileActivity : AppCompatActivity() {
 
 
 
+        }
+
+        savebutton.setOnClickListener {
+            //shared preferences init
+            val sharedPreferences = getSharedPreferences("SharedPref", 0)
+
 
             val nameEncoded = sharedPreferences.getString("editusername", null)
             val passEncoded = sharedPreferences.getString("editpass", null)
@@ -147,15 +151,16 @@ class ProfileActivity : AppCompatActivity() {
             //show data
             outputdata.text = "Decoded username: $name \nDecoded password: $pass "
 
-            var enusername = nameEncoded.toString()
-            var enpass = passEncoded.toString()
+            val enusername = nameEncoded.toString()
+            val enpass = passEncoded.toString()
 
+
+            //save to firestore
             saveFireStore(enusername, enpass)
 
 
+
         }
-
-
 
 
 
@@ -180,10 +185,6 @@ class ProfileActivity : AppCompatActivity() {
 
 
 
-
-
-
-
     fun saveFireStore(username: String, password: String) {
         val db = FirebaseFirestore.getInstance()
         val user: MutableMap<String, Any> = HashMap()
@@ -203,9 +204,6 @@ class ProfileActivity : AppCompatActivity() {
 
 
     }
-
-
-
 
 
 

@@ -103,7 +103,7 @@
         android:layout_below="@id/passtxt"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType=""
+        android:inputType="textPassword"
         />
 
     <Button
@@ -113,7 +113,16 @@
         android:layout_above="@+id/loggedinas"
         android:layout_centerHorizontal="true"
         android:enabled="false"
-        android:text="Save" />
+        android:text="Next" />
+
+    <Button
+        android:id="@+id/savebtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/savetbtn1"
+        android:layout_centerHorizontal="true"
+        android:text="Save"
+        />
 
 
     <TextView
@@ -123,6 +132,7 @@
         android:layout_below="@+id/passEt"
         android:visibility="invisible"
         android:text="TextView" />
+
 
 
 </RelativeLayout>
